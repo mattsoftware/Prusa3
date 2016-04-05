@@ -71,7 +71,7 @@ bushing_carriage = bushing_xy;
 // Select idler bearing size **************************************************
 // bearing_* are in inc/conf_bushing.scad
 
-idler_bearing = bearing_623;
+idler_bearing = bearing_608_washers;
 
 // Select carriage lenght ******************************************************
 // 30 for single carriage extruder (two holes with centers 30mm apart)
