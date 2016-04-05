@@ -20,7 +20,8 @@ include <functions.scad>
 
 //guiding_wall_thickness of guiding wall
 guiding_wall_thickness=layer_height * 4;
-
+bearing_guide_inner_fit_radius = idler_bearing[0] / 2 + single_wall_width * 3;
+bearing_guide_inner_fit_radius_clearance = 0.4/2;
 
 height = max(belt_width, idler_bearing[1]) + guiding_wall_thickness;
 //How much the guiding wall overlaps the bearing wall (to the center)
@@ -29,7 +30,7 @@ wall_descent = 1;
 module bearing_guide_inner(){
     //inner (smaller) part of the guide
     difference(){
-        cylinder(r=idler_bearing[0] / 2 + single_wall_width * 3, h=height - (max( idler_bearing[1], belt_width) - idler_bearing[1]) / 2);
+        cylinder(r=bearing_guide_inner_fit_radius-bearing_guide_inner_fit_radius_clearance, h=height - (max( idler_bearing[1], belt_width) - idler_bearing[1]) / 2);
         translate([0, 0, -1])
             cylinder(r=idler_bearing[0] / 2, h=height + 2);
     }
@@ -48,7 +49,7 @@ module bearing_guide_outer(){
     difference(){
         cylinder(r=idler_bearing[0] / 2 + 6 * single_wall_width + 0.2, h=height);
         translate([0,0,-1])
-            cylinder(r=idler_bearing[0] / 2 + single_wall_width * 3, h=height + 2);
+            cylinder(r=bearing_guide_inner_fit_radius+bearing_guide_inner_fit_radius_clearance, h=height + 2);
     }
 
     difference(){
