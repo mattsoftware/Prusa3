@@ -111,17 +111,19 @@ module x_end_base(vfillet=[3, 3, 3, 3], thru=true, len=40, offset=0){
 }
 
 module x_end_idler(){
+    idler_height = 1.5 + max(idler_bearing[0], 16);
     difference() {
         x_end_base(len=48 + z_delta / 3, offset=-10 - z_delta / 3);
         // idler hole
         translate([-20, -15 - z_delta / 2, 30]) {
             rotate([0, 90, 0]) cylinder(r=m4_diameter / 2, h=33, center=true, $fn=small_hole_segments);
             translate([15 - 2 * single_wall_width, 0, 0]) rotate([90, 0, 90]) cylinder(r=m4_nut_diameter_horizontal / 2, h=3, $fn=6);
-
         }
-        translate([-6 - x_box_width, 11, 29.5 - (max(idler_width, 16) / 2)]) cube([x_box_width + 1, 12, 1.5 + max(idler_bearing[0], 16)]);
+        translate([-6 - x_box_width, 11, x_box_height/2 - idler_height/2]) {
+            #cube([x_box_width + 1, 12, idler_height]);
+        }
     }
-        %translate([-14 - xy_delta / 2, -9, 30.5 - (max(idler_width, 16) / 2)]) x_tensioner();
+    %translate([-14 - xy_delta / 2, -9, 30.5 - (max(idler_width, 16) / 2)]) x_tensioner();
 }
 
 module x_tensioner(len=68, idler_height=max(idler_bearing[0], 16)) {
@@ -141,8 +143,9 @@ module pushfit_rod(diameter, length){
     translate([0, -diameter/2-1.2, length/2]) cube([diameter - 1, 1, length], center = true);
 }
 
-
-if (idler_bearing[3] == 1) {  // bearing guides
+// We mocked the 608 bearing to have [3] = 1 as it made a better print, but we do not need the bearing assy with the 608 (for crusher at least)
+if (idler_bearing[3] == 1 && idler_bearing[4] != "608 bearing") {
+    // bearing guides
     translate([-39,  -60 - idler_bearing[0] / 2, 4 - bushing_xy[0]]) rotate([0, 0, 55]) {
         render() bearing_assy();
     }

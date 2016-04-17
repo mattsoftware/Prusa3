@@ -54,5 +54,8 @@ bearing_623_double = [10, 8, 3, 0, "623 bearing"];
 bearing_608 = [22, 7, 8, 1, "608 bearing"];
 // 608 bearings with fender washers.
 // the belt brushes both against the carriage and the washers.
-bearing_608_washers = [22, 10, 8, 0, "608 bearing"];
+
+// Changed [1] from 10 to 4 to make it fit the x-end better
+// Changed [3] from 0 to 1 to mimic the bearing_623 better
+bearing_608_washers = [22, 4, 8, 1, "608 bearing"];
 
