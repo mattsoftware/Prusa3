@@ -136,3 +136,12 @@ bed_y_size=225;
 x_smooth_rod_length=380+board_thickness*2;
 y_smooth_rod_length=400;
 z_smooth_rod_length=320;
+
+// Size of the z threaded rod
+m5_nut_radius = 9.1/2+0.05;
+m5_rod_radius = 5/2+0.5;
+m8_nut_radius = 14.5/2+0.5;
+m8_rod_radius = 8/2+0.5;
+z_threaded_rod_radius = m8_rod_radius;
+z_threaded_rod_nut_radius = m8_nut_radius;
+
