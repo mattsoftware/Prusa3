@@ -145,3 +145,8 @@ m8_rod_radius = 8/2+0.5;
 z_threaded_rod_radius = m8_rod_radius;
 z_threaded_rod_nut_radius = m8_nut_radius;
 
+nut_trap_length = z_threaded_rod_nut_radius * 2+10.8;
+nut_trap_width = z_threaded_rod_nut_radius*2+4.8;
+z_threaded_rod_y_offset = nut_trap_width/2+11;
+z_threaded_rod_x_offset = nut_trap_length/2-5.5;
+

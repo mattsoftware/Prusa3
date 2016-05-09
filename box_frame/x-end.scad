@@ -29,11 +29,6 @@ x_box_height = 52 + 2 * bushing_xy[0];
 x_box_width = (bushing_xy[0] <= 4) ? 17.5 : bushing_xy[0] * 2 + 9.5;
 bearing_height = max ((bushing_z[2] > 30 ? x_box_height : (2 * bushing_z[2] + 8)), x_box_height);
 
-nut_trap_length = z_threaded_rod_nut_radius * 2+10.8;
-nut_trap_width = z_threaded_rod_nut_radius*2+4.8;
-z_threaded_rod_y_offset = nut_trap_width/2+11;
-z_threaded_rod_x_offset = nut_trap_length/2-5.5;
-
 module x_end_motor(){
 
     mirror([0, 1, 0]) {
@@ -132,7 +127,7 @@ module x_end_base(vfillet=[3, 3, 3, 3], thru=true, len=0, offset=0){
         }
     }
     //threaded rod
-    translate([z_threaded_rod_x_offset, z_threaded_rod_y_offset, 0]) %cylinder(h = 70, r=z_threaded_rod_radius);
+    translate([z_threaded_rod_x_offset, z_threaded_rod_y_offset, 0]) %cylinder(h = 170, r=z_threaded_rod_radius);
 }
 
 module x_end_idler(){
