@@ -25,12 +25,14 @@ m4_diameter = 4.7;
 //iso4032 says 7.66
 m4_nut_diameter = 7.6;
 m4_nut_diameter_horizontal = 8.15;
+m4_nut_height = 3.8;
 
 m3_diameter = 3.6;
 //iso4032 says 6.01
 m3_nut_diameter = 5.3;
 m3_nut_diameter_horizontal = 6.8;
 m3_washer_diameter = 6.9;
+m3_nut_height = 2.5;
 
 // Motors
 
